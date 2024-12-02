@@ -1,15 +1,83 @@
-<h1>Candidatures</h1>
-<table class="table-auto w-full">
-  <thead>
-  <tr>
-    <th>Entreprise</th>
-    <th>Status</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let application of applications">
-    <td>{{ application.company }}</td>
-    <td>{{ application.status }}</td>
-  </tr>
-  </tbody>
-</table>
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liste des Candidatures</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Empêcher le défilement de la page */
+    body, html {
+      height: 100%;
+      margin: 0;
+      overflow: hidden; /* Désactive le défilement global */
+    }
+
+    /* Conteneur du tableau défilant */
+    .table-container {
+      max-height: calc(100vh - 200px); /* Hauteur disponible pour le tableau */
+      overflow-y: auto; /* Défilement vertical */
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100">
+
+<!-- Header -->
+<header class="bg-white shadow-md py-4 mb-8">
+  <div class="container mx-auto flex justify-between items-center">
+    <h1 class="text-3xl ml-4 font-bold text-gray-800">Candidatures</h1>
+  </div>
+</header>
+
+<!-- Main Content -->
+<div class="container mx-auto px-4 flex flex-col min-h-screen">
+  <h2 class="text-center text-2xl font-semibold text-gray-800 mb-4">Liste des candidatures</h2>
+
+  <div class="bg-white shadow-lg rounded-lg overflow-hidden table-container">
+    <table class="min-w-full table-auto">
+      <thead class="bg-gray-200">
+      <tr>
+        <th class="px-4 py-2 text-left text-sm font-semibold text-gray-600">Date</th>
+        <th class="px-4 py-2 text-left text-sm font-semibold text-gray-600">Entreprise</th>
+        <th class="px-4 py-2 text-left text-sm font-semibold text-gray-600">Statut</th>
+        <th class="px-4 py-2 text-left text-sm font-semibold text-gray-600">Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <!-- Exemple de ligne de candidature -->
+      <tr class="border-b hover:bg-gray-50">
+        <td class="px-4 py-2 text-sm text-gray-800">01/12/2024</td>
+        <td class="px-4 py-2 text-sm text-gray-800">Google</td>
+        <td class="px-4 py-2 text-sm text-gray-600">En attente</td>
+        <td class="px-4 py-2 text-sm">
+          <button class="text-red-500 hover:text-red-700" onclick="deleteCandidature(this)">
+            Supprimer
+          </button>
+        </td>
+      </tr>
+      <!-- Ajouter plus de lignes dynamiquement -->
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-white py-4 mt-8 fixed bottom-0 w-full">
+  <div class="container mx-auto text-center">
+    <p>&copy; 2024 Alterfind. Tous droits réservés.</p>
+  </div>
+</footer>
+
+<script>
+  // Exemple de fonction pour supprimer une candidature
+  function deleteCandidature(button) {
+    const row = button.closest('tr');
+    row.remove();
+  }
+</script>
+
+</body>
+
+</html>

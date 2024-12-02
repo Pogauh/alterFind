@@ -1,1 +1,50 @@
-<p>profile works!</p>
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Profil</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Assure que la page occupe toute la hauteur de l'écran */
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100">
+
+<div class="flex h-full">
+  <!-- Première div -->
+  <div class="flex-1 bg-blue-200 rounded-lg m-4 p-6 shadow-lg">
+    <h2 class="text-2xl font-semibold text-gray-800">Profil Utilisateur</h2>
+    <div class="border-8 mt-3 w-1/2 border-sky-500 rounded-2xl">
+      <h3 class="ml-3">Nom : </h3>
+    </div>
+    <div class="border-8 mt-3 w-1/2 border-sky-500 rounded-2xl">
+      <h3 class="ml-3">Prenom :</h3>
+    </div>
+    <div class="border-8 mt-3 w-1/2 border-sky-500 rounded-2xl">
+      <h3 class="ml-3">Age : </h3>
+    </div>
+    <div class="border-8 mt-3 w-1/2 border-sky-500 rounded-2xl">
+      <h3 class="ml-3">Ville : </h3>
+    </div>
+    <div class="border-8 mt-3 w-1/2 border-sky-500 rounded-2xl">
+      <h3 class="ml-3">Domaine : </h3>
+    </div>
+  </div>
+
+  <!-- Deuxième div -->
+  <div class="flex-1 bg-green-200 rounded-lg m-4 p-6 shadow-lg">
+    <h2 class="text-2xl font-semibold text-gray-800">Détails Supplémentaires</h2>
+    <p class="mt-4 text-gray-700">Contenu de la deuxième section du profil.</p>
+  </div>
+</div>
+
+</body>
+
+</html>

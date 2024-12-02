@@ -1,0 +1,94 @@
+<div class="flex items-center justify-center min-h-screen bg-gray-100">
+  <div class="bg-white shadow-lg rounded-lg w-96 p-8">
+    <h2 class="text-2xl font-bold text-center text-gray-700 mb-6">Créer un compte</h2>
+
+    <div *ngIf="errorMessage" class="bg-red-100 text-red-700 p-3 rounded mb-4">
+      {{ errorMessage }}
+    </div>
+
+    <form (ngSubmit)="onRegister()" class="space-y-4">
+      <!-- Nom -->
+      <div>
+        <label for="nom" class="block text-sm font-medium text-gray-600">Nom</label>
+        <input
+          type="text"
+          id="nom"
+          [(ngModel)]="nom"
+          name="nom"
+          class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          placeholder="Entrez votre nom"
+          required
+        />
+      </div>
+
+      <!-- Prénom -->
+      <div>
+        <label for="prenom" class="block text-sm font-medium text-gray-600">Prénom</label>
+        <input
+          type="text"
+          id="prenom"
+          [(ngModel)]="prenom"
+          name="prenom"
+          class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          placeholder="Entrez votre prénom"
+          required
+        />
+      </div>
+
+      <!-- Email -->
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-600">Adresse e-mail</label>
+        <input
+          type="email"
+          id="email"
+          [(ngModel)]="email"
+          name="email"
+          class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          placeholder="Entrez votre email"
+          required
+        />
+      </div>
+
+      <!-- Mot de passe -->
+      <div>
+        <label for="password" class="block text-sm font-medium text-gray-600">Mot de passe</label>
+        <input
+          type="password"
+          id="password"
+          [(ngModel)]="password"
+          name="password"
+          class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          placeholder="Entrez votre mot de passe"
+          required
+        />
+      </div>
+
+      <!-- Confirmation du mot de passe -->
+      <div>
+        <label for="confirmPassword" class="block text-sm font-medium text-gray-600">Confirmer le mot de passe</label>
+        <input
+          type="password"
+          id="confirmPassword"
+          [(ngModel)]="confirmPassword"
+          name="confirmPassword"
+          class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          placeholder="Confirmez votre mot de passe"
+          required
+        />
+      </div>
+
+      <!-- Bouton Créer un compte -->
+      <button
+        type="submit"
+        class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:ring-2 focus:ring-blue-300"
+      >
+        Créer un compte
+      </button>
+    </form>
+
+    <p class="text-sm text-center text-gray-600 mt-6">
+      Déjà inscrit ?
+      <a routerLink="/login" class="text-blue-500 hover:underline">Connectez-vous ici</a>
+    </p>
+  </div>
+</div>
