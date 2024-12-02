@@ -1,0 +1,15 @@
+<h1>Candidatures</h1>
+<table class="table-auto w-full">
+  <thead>
+  <tr>
+    <th>Entreprise</th>
+    <th>Status</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let application of applications">
+    <td>{{ application.company }}</td>
+    <td>{{ application.status }}</td>
+  </tr>
+  </tbody>
+</table>
