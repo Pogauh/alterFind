@@ -1,11 +1,16 @@
 <nav class="bg-gray-800 p-4 text-white">
+
   <ul class="flex space-x-4">
+
     <li><a routerLink="/" class="hover:underline">Accueil</a></li>
     <li><a routerLink="/profile" class="hover:underline">Profil</a></li>
     <li><a routerLink="/applications" class="hover:underline">Candidatures</a></li>
-    <li><a routerLink="/login" class="hover:underline">Se connecter</a></li>
-    <li><a routerLink="/register" class="hover:underline">S'enregistrer</a></li>
 
+    <!-- Les liens de connexion et d'enregistrement à droite -->
+      <li><a routerLink="/login" class="hover:underline">Se connecter</a></li>
+      <li><a routerLink="/register" class="hover:underline">S'enregistrer</a></li>
   </ul>
 </nav>
+
 <router-outlet></router-outlet>
+
