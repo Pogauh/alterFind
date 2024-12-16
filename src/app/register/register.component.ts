@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import {User} from "./user";
 
 @Component({
   selector: 'app-register',
@@ -23,7 +24,7 @@ export class RegisterComponent {
       return;
     }
 
-    const user = { nom: this.nom, prenom: this.prenom, email: this.email, password: this.password };
+    const user:User = new User(this.nom,this.prenom,this.email,this.password);
 
     this.authService.register(user).subscribe(
       () => {
