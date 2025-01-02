@@ -12,6 +12,7 @@ export class RegisterComponent {
   nom: string = '';
   prenom: string = '';
   email: string = '';
+  username: string = '';
   password: string = '';
   confirmPassword: string = '';
   errorMessage: string | null = null;
@@ -24,7 +25,7 @@ export class RegisterComponent {
       return;
     }
 
-    const user:User = new User(this.nom,this.prenom,this.email,this.password);
+    const user:User = new User(this.nom,this.prenom,this.username,this.email,this.password);
 
     this.authService.register(user).subscribe(
       () => {
