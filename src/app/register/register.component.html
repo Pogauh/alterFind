@@ -2,18 +2,20 @@
   <div class="bg-white shadow-lg rounded-lg w-96 p-8">
     <h2 class="text-2xl font-bold text-center text-gray-700 mb-6">Créer un compte</h2>
 
+    <!--
     <div *ngIf="errorMessage" class="bg-red-100 text-red-700 p-3 rounded mb-4">
       {{ errorMessage }}
     </div>
+    -->
 
-    <form (ngSubmit)="onRegister()" class="space-y-4">
+    <form (ngSubmit)="onSubmit()" [formGroup]="signupForm" class="space-y-4 form-group">
       <!-- Nom -->
       <div>
         <label for="nom" class="block text-sm font-medium text-gray-600">Nom</label>
         <input
           type="text"
           id="nom"
-          [(ngModel)]="nom"
+          formControlName="nom"
           name="nom"
           class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
           placeholder="Entrez votre nom"
@@ -21,30 +23,16 @@
         />
       </div>
 
-      <!-- Prénom -->
+      <!-- prenom -->
       <div>
-        <label for="prenom" class="block text-sm font-medium text-gray-600">Prénom</label>
+        <label for="email" class="block text-sm font-medium text-gray-600">Prénom</label>
         <input
-          type="text"
+          type="prenom"
           id="prenom"
-          [(ngModel)]="prenom"
+          formControlName="prenom"
           name="prenom"
           class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-          placeholder="Entrez votre prénom"
-          required
-        />
-      </div>
-
-      <!-- username-->
-      <div>
-        <label for="nom" class="block text-sm font-medium text-gray-600">Username</label>
-        <input
-          type="text"
-          id="username"
-          [(ngModel)]="username"
-          name="nom"
-          class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-          placeholder="Entrez votre username"
+          placeholder="Entrez votre prenom"
           required
         />
       </div>
@@ -55,7 +43,7 @@
         <input
           type="email"
           id="email"
-          [(ngModel)]="email"
+          formControlName="email"
           name="email"
           class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
           placeholder="Entrez votre email"
@@ -63,30 +51,17 @@
         />
       </div>
 
+
       <!-- Mot de passe -->
       <div>
         <label for="password" class="block text-sm font-medium text-gray-600">Mot de passe</label>
         <input
           type="password"
           id="password"
-          [(ngModel)]="password"
+          formControlName="password"
           name="password"
           class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
           placeholder="Entrez votre mot de passe"
-          required
-        />
-      </div>
-
-      <!-- Confirmation du mot de passe -->
-      <div>
-        <label for="confirmPassword" class="block text-sm font-medium text-gray-600">Confirmer le mot de passe</label>
-        <input
-          type="password"
-          id="confirmPassword"
-          [(ngModel)]="confirmPassword"
-          name="confirmPassword"
-          class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-          placeholder="Confirmez votre mot de passe"
           required
         />
       </div>
