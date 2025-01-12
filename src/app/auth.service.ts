@@ -18,6 +18,7 @@ export class AuthService {
   }
 
   register(user: any): Observable<any> {
+    console.log(user);
     return this.http.post('http://localhost:8081/api/users/register', user, {headers: { 'Content-Type': 'application/json' }});
   }
 

@@ -25,7 +25,7 @@
 
       <!-- prenom -->
       <div>
-        <label for="email" class="block text-sm font-medium text-gray-600">Prénom</label>
+        <label for="prenom" class="block text-sm font-medium text-gray-600">Prénom</label>
         <input
           type="prenom"
           id="prenom"
@@ -64,6 +64,33 @@
           placeholder="Entrez votre mot de passe"
           required
         />
+      </div>
+
+      <!-- Type d'utilisateur -->
+      <div>
+        <label class="block text-sm font-medium text-gray-600">Vous êtes :</label>
+        <div class="mt-2">
+          <label class="inline-flex items-center">
+            <input
+              type="radio"
+              formControlName="userType"
+              value="CANDIDATE"
+              class="form-radio text-blue-500"
+            />
+            <span class="ml-2">Candidat</span>
+          </label>
+        </div>
+        <div class="mt-2">
+          <label class="inline-flex items-center">
+            <input
+              type="radio"
+              formControlName="userType"
+              value="COMPANY"
+              class="form-radio text-blue-500"
+            />
+            <span class="ml-2">Entreprise</span>
+          </label>
+        </div>
       </div>
 
       <!-- Bouton Créer un compte -->

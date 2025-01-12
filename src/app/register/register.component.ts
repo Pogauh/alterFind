@@ -16,13 +16,14 @@ export class RegisterComponent {
   constructor(private authService: AuthService, private storage: LocalStorageService,  private router: Router) { }
 
   request: SignupRequest = new SignupRequest();
-  msg: string | undefined;
 
   signupForm: FormGroup = new FormGroup({
     nom: new FormControl('', Validators.required),
     prenom: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
+    userType: new FormControl('', Validators.required)
+
   });
 
   public onSubmit() {
@@ -34,12 +35,14 @@ export class RegisterComponent {
     this.request.prenom = formValue.prenom;
     this.request.email = formValue.email;
     this.request.password = formValue.password;
+    this.request.userType = formValue.userType; // Assigner le type d'utilisateur
+
+
 
     if (this.signupForm.valid) {
       this.authService.register(this.request).subscribe({
         next: (res) => {
-          console.log(res.response);
-          this.msg = res.response;
+
 
           // Vérifier si l'ID utilisateur est renvoyé dans la réponse
           if (res.userId) {
