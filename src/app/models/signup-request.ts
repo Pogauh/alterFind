@@ -3,6 +3,6 @@ export class SignupRequest {
   prenom?: string
   email?: string
   password?: string
-  userType?: string
+  type?: string
 
 }

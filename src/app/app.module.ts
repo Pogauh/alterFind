@@ -9,6 +9,7 @@ import { RegisterComponent } from './register/register.component';
 import { UserListComponent } from './user-list/user-list.component';
 import {ProfileComponent} from "./profile/profile.component";
 import {ApplicationsComponent} from "./applications/applications.component";
+import { AnnoncesComponent } from './annonces/annonces.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import {ApplicationsComponent} from "./applications/applications.component";
     RegisterComponent,
     UserListComponent,
     ProfileComponent,
-    ApplicationsComponent
+    ApplicationsComponent,
+    AnnoncesComponent
   ],
   imports: [
     BrowserModule,

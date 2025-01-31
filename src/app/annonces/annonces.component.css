@@ -1,0 +1,12 @@
+/* Empêcher le défilement de la page */
+body, html {
+  height: 100%;
+  margin: 0;
+  overflow: hidden; /* Désactive le défilement global */
+}
+
+/* Conteneur du tableau défilant */
+.table-container {
+  max-height: calc(100vh - 200px); /* Hauteur disponible pour le tableau */
+  overflow-y: auto; /* Défilement vertical */
+}

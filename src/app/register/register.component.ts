@@ -35,7 +35,7 @@ export class RegisterComponent {
     this.request.prenom = formValue.prenom;
     this.request.email = formValue.email;
     this.request.password = formValue.password;
-    this.request.userType = formValue.userType; // Assigner le type d'utilisateur
+    this.request.type = formValue.userType; // Assigner le type d'utilisateur
 
 
 
