@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 import {LoginRequest} from "./models/login-request";
 import {LoginResponse} from "./models/login-response";
 
@@ -10,6 +10,10 @@ import {LoginResponse} from "./models/login-response";
 export class AuthService {
   // a voir la fin de l'url
   private apiUrl = 'http://localhost:8081/api/users'; // L'URL de ton API
+
+  private userSubject = new BehaviorSubject<any>(null);  // Pour stocker l'utilisateur et son état
+  user$ = this.userSubject.asObservable();  // Observable pour l'abonnement
+
 
   constructor(private http: HttpClient) {}
 
@@ -27,7 +31,7 @@ export class AuthService {
   }
 
   logout(): void {
-    localStorage.removeItem('id');
+    localStorage.removeItem('userId');
     localStorage.removeItem('auth-token');
   }
 

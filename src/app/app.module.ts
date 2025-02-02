@@ -10,6 +10,7 @@ import { UserListComponent } from './user-list/user-list.component';
 import {ProfileComponent} from "./profile/profile.component";
 import {ApplicationsComponent} from "./applications/applications.component";
 import { AnnoncesComponent } from './annonces/annonces.component';
+import { OffreComponent } from './offre/offre.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { AnnoncesComponent } from './annonces/annonces.component';
     UserListComponent,
     ProfileComponent,
     ApplicationsComponent,
-    AnnoncesComponent
+    AnnoncesComponent,
+    OffreComponent
   ],
   imports: [
     BrowserModule,

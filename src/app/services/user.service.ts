@@ -19,6 +19,10 @@ export class UserService {
     return this.http.get(`http://localhost:8081/api/annonces/${id}`);
   }
 
+  getAllAnnonces(): Observable<any> {
+    return this.http.get(`http://localhost:8081/api/annonces`);
+  }
+
   deleteAnnonce(id: number): Observable<void> {
     return this.http.delete<void>(`http://localhost:8081/api/annonces/${id}`);
   }

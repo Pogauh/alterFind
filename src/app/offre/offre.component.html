@@ -1,0 +1,68 @@
+<!-- Header -->
+<header class="bg-white shadow-md py-4 mb-8">
+  <div class="container mx-auto flex justify-between items-center">
+    <h1 class="text-3xl ml-4 font-bold text-gray-800">Offres d'emploi</h1>
+  </div>
+</header>
+
+<!-- Main Content -->
+<div class="container mx-auto px-4 flex flex-col min-h-screen">
+  <h2 class="text-center text-2xl font-semibold text-gray-800 mb-4">Liste des offres</h2>
+
+  <div class="bg-white shadow-lg rounded-lg overflow-hidden table-container">
+    <table class="min-w-full table-auto">
+      <thead class="bg-gray-200">
+      <tr>
+        <th class="px-4 py-2 text-left text-sm font-semibold text-gray-600">Titre</th>
+        <th class="px-4 py-2 text-left text-sm font-semibold text-gray-600">Localisation</th>
+        <th class="px-4 py-2 text-left text-sm font-semibold text-gray-600">Salaire</th>
+        <th class="px-4 py-2 text-left text-sm font-semibold text-gray-600">Entreprise</th>
+        <th class="px-4 py-2 text-left text-sm font-semibold text-gray-600">Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let annonce of annonces" class="border-b hover:bg-gray-50">
+        <td class="px-4 py-2 text-sm text-gray-800">{{ annonce.titre }}</td>
+        <td class="px-4 py-2 text-sm text-gray-800">{{ annonce.localisation }}</td>
+        <td class="px-4 py-2 text-sm text-gray-800">{{ annonce.salaire }}</td>
+        <td class="px-4 py-2 text-sm text-gray-800">{{ annonce.entreprise?.nom_entreprise || 'Non spécifié' }}</td>
+        <td class="px-4 py-2 text-sm">
+          <button class="text-blue-500 hover:text-blue-700" (click)="PostulerAnnonce(annonce.id)">
+            Postuler
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Formulaire de candidature qui apparaît lorsqu'on clique sur "Postuler" -->
+  <div *ngIf="formVisible" class="mt-8 bg-white p-6 rounded-lg shadow-lg">
+    <h3 class="text-xl font-semibold mb-4">Lettre de motivation</h3>
+    <form [formGroup]="candidatureForm" (ngSubmit)="soumettreCandidature()">
+      <div class="mb-4">
+        <textarea
+          formControlName="lettreMotivation"
+          rows="5"
+          class="w-full p-2 border border-gray-300 rounded"
+          placeholder="Écrivez votre lettre de motivation ici..."
+        ></textarea>
+      </div>
+      <button
+        type="submit"
+        class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        [disabled]="!candidatureForm.valid"
+      >
+        Soumettre
+      </button>
+    </form>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-white py-4 mt-8 fixed bottom-0 w-full">
+  <div class="container mx-auto text-center">
+    <p>&copy; 2024 Alterfind. Tous droits réservés.</p>
+  </div>
+</footer>

@@ -4,15 +4,23 @@
 
     <li><a routerLink="/" class="hover:underline">Accueil</a></li>
     <li><a routerLink="/profile" class="hover:underline">Profil</a></li>
-    <li><a routerLink="/applications" class="hover:underline">Candidatures</a></li>
-    <li><a routerLink="/annonces" class="hover:underline">Annonces</a></li>
+    <li><a routerLink="/applications" class="hover:underline"> Mes candidatures</a></li>
+    <li><a routerLink="/annonces" class="hover:underline"> Mes annonces</a></li>
+    <li><a routerLink="/offres" class="hover:underline"> Annonces</a></li>
 
 
-    <!-- Les liens de connexion et d'enregistrement à droite -->
-      <li><a routerLink="/login" class="hover:underline">Se connecter</a></li>
-      <li><a routerLink="/register" class="hover:underline">S'enregistrer</a></li>
-      <li><a class="hover:underline"  (click)="logout()">Deconnexion</a></li>
 
+    <li *ngIf="!isLoggedIn">
+      <a routerLink="/login" class="hover:underline">Se connecter</a>
+    </li>
+    <li *ngIf="!isLoggedIn">
+      <a routerLink="/register" class="hover:underline">S'enregistrer</a>
+    </li>
+
+    <!-- Lien de déconnexion, visible seulement si l'utilisateur est connecté -->
+    <li *ngIf="isLoggedIn">
+      <a class="hover:underline" (click)="logout()">Déconnexion</a>
+    </li>
   </ul>
 </nav>
 

@@ -29,10 +29,7 @@ export class ProfileComponent implements OnInit {
       this.authService.getUser(userId).subscribe(
         (data) => {
           this.user = data;
-          console.log(data);
-
-          this.getAnnonces(userId);
-        },
+          },
         (error) => {
           this.errorMessage = "Erreur lors de la récupération des données utilisateur.";
         }
@@ -43,16 +40,4 @@ export class ProfileComponent implements OnInit {
 
   }
 
-
-  getAnnonces(userId: any): void {
-    this.userService.getAnnonces(userId).subscribe(
-      (annonces) => {
-        this.annonces = annonces;
-        console.log("Annonces:", annonces);
-      },
-      (error) => {
-        console.error("Erreur lors de la récupération des annonces :", error);
-      }
-    );
-  }
 }
